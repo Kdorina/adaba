@@ -14,7 +14,7 @@ public class Mariadb implements Database {
     }
     public Connection tryConnectDb() throws SQLException {
         Connection con = null;
-        String url = "jdb:mariadb://localhost:3306/adaba";
+        String url = "jdbc:mariadb://localhost:3306/adaba";
         String user = "adaba";
         String pass = "titok";
         con = DriverManager.getConnection(url, user, pass);
@@ -22,6 +22,13 @@ public class Mariadb implements Database {
         return con;
     }
     public void closeDb(Connection con) {
-
+            try {
+                tryCloseDb(con);
+            } catch (SQLException e) {
+                System.err.println("Hiba! A kapcsolat bezárása sikertelen");
+            }
+    }
+    public void tryCloseDb(Connection con) throws SQLException {
+            con.close();
     }
 }
