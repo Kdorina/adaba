@@ -6,7 +6,8 @@ public class App {
         System.out.println("Hello, World!");
 
 
-        Data data = new Data(new Mariadb());
+        // Data data = new Data(new Mariadb());
+        Data data = new Data(new Sqlite());
         // data.connect();
         //itt kérek adatokat
         // data.close();
